@@ -2,32 +2,32 @@
 
 void    quick_sort(int *list, int left, int right)
 {
-    int i, j, x, swap;
+    int le, ri, mid, swap;
      
-    i = left;
-    j = right;
-    x = list[(left + right) / 2];
+    le = left;
+    ri = right;
+    mid = list[(left + right) / 2];
      
-    while(i <= j) {
-        while(list[i] < x && i < right) {
-            i++;
+    while(le <= ri) {
+        while(list[le] < mid && le < right) {
+            le++;
         }
-        while(list[j] > x && j > left) {
-            j--;
+        while(list[ri] > mid && ri > left) {
+            ri--;
         }
-        if(i <= j) {
-            swap = list[i];
-            list[i] = list[j];
-            list[j] = swap;
-            i++;
-            j--;
+        if(le <= ri) {
+            swap = list[le];
+            list[le] = list[ri];
+            list[ri] = swap;
+            le++;
+            ri--;
         }
     }
      
-    if(j > left) {
-        quick_sort(list, left, j);
+    if(ri > left) {
+        quick_sort(list, left, ri);
     }
-    if(i < right) {
-        quick_sort(list, i, right);
+    if(le < right) {
+        quick_sort(list, le, right);
     }
 }
