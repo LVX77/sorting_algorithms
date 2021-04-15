@@ -13,8 +13,13 @@ int     *create_list(void)
     int counter;
 
     counter = 0;
-    list = calloc(LIST_SIZE, sizeof(int));
-    while (counter < LIST_SIZE)
+    list = malloc(LIST_SIZE * sizeof(int));
+    if(list == NULL)
+    {
+        printf("ERROR");
+        abort();
+    }
+    while (counter <= LIST_SIZE)
     {
         list[counter] = rand();
         counter++;
@@ -26,9 +31,24 @@ int     *create_list(void)
 int     main(void)
 {
     int *list;
+    int counter;
 
     list = create_list();
     quick_sort(list, 0, LIST_SIZE - 1);
+    counter = 0;
+    while (counter < LIST_SIZE)
+    {
+        printf("%i :",list[counter]);
+        counter++;
+    }
 
+    list = create_list();
+    insertion_sort(list, LIST_SIZE);
+    counter = 0;
+    while (counter < LIST_SIZE)
+    {
+        printf("%i :",list[counter]);
+        counter++;
+    }
     return (0);
 }
