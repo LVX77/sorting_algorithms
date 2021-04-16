@@ -1,7 +1,7 @@
 #include "library.h"
 #include <stdio.h>
 
-void insertion_sort(int *list, int size)
+void burbble_sort(int *list, int size)
 {
     int counter, counteraux, swap;
     

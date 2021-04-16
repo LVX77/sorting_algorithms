@@ -43,7 +43,7 @@ int     main(void)
     }
 
     list = create_list();
-    insertion_sort(list, LIST_SIZE);
+    burbble_sort(list, LIST_SIZE);
     counter = 0;
     while (counter < LIST_SIZE)
     {
